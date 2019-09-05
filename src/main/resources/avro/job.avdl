@@ -1,0 +1,89 @@
+@namespace("com.ada.sample.avrogenerated")
+protocol JobKafkaMessageService {
+    import idl "location.avdl";
+
+    enum JobEvents {
+        CREATED, UPDATED, UPDATE_JOB_TEAM, CLOSE_JOB, REOPEN_JOB, UPDATE_JOB_TEAM_MAPPINGS, UPDATE_JOB_TEAM_SUBMISSIONS, UPDATE_JOB_TEAM_NONE
+    }
+
+    enum JobType {
+        Permanent, Contract, Temporary, Internship, None
+    }
+
+    enum SalaryTimeSpan {
+        PerAnnum, PerMonth, PerDay, PerHour, None
+    }
+
+    record JobKafkaMessage {
+        string id;
+        union { string, null } recruiterId;
+        union { string, null } title = "";
+        union { string, null } jobCode = "";
+        union { string, null } clientJobCode = "";
+        union { string, null } companyName;
+        union { string, null } jobReference = "";
+        union { string, null } jobSource = "";
+        union { JobType, null } jobType = "None";
+        union { string, null } url = "";
+        union { string, null } description = "";
+        union { long, null } @logicalType("timestamp-millis") postedDate;
+        union { long, null } @logicalType("timestamp-millis") jobFilledDate;
+        union { long, null } @logicalType("timestamp-millis") expiryDate;
+        union { boolean, null } isJobOpenTillVacant = false;
+        union { int, null } numberOfPositions = 0;
+        union { string, null } industry = "";
+        union { string, null } department = "";
+        union { boolean, null } displaySalary = false;
+        union { string, null } salaryCurrency = "";
+        union { string, null } minimumSalary = "";
+        union { string, null } maximumSalary = "";
+        union { SalaryTimeSpan, null } salaryTimeSpan = "None";
+        union { string, null } salaryAlternateDisplayText = "";
+        union { string, null } otherBenefitDetails = "";
+        union { string, null } workDuration = "";
+        union { string, null } immigrationStatus = "";
+        union { string, null } displayImmigrationStatus = "";
+        union { array<string>, null } skills = [];
+        union { array<string>, null } tags = [];
+        union { array<string>, null } qualifications = [];
+        union { string, null } qualificationsAlternateText = "";
+        union { array<string>, null } educationRequirements = [];
+        union { array<string>, null } experienceRequirements = [];
+        union { string, null } experienceAlternateText = "";
+        union { double, null } minimumExperienceInYears = 0;
+        union { double, null } maximumExperienceInYears = 0;
+        union { string, null } visaRequirements = "";
+        union { string, null } workAuthorization = "";
+        union { boolean, null } isPartnerJob = false;
+        union { string, null } redirectionUrl = "";
+        union { string, null } jobOwner = "";
+        union { string, null } jobStatus;
+        union { boolean, null } isActive;
+        union { boolean, null } isClosedForAssigningRecruiters;
+        union { string, null } createdBy;
+        union { long, null } @logicalType("timestamp-millis") createdOn;
+        union { string, null } modifiedBy;
+        union { long, null } @logicalType("timestamp-millis") modifiedOn;
+        union { array<Location>, null } locations = [];
+        union { string, null } jobPostedByTeamId = "";
+        union { string, null } clientRecruiterName;
+        union { string, null } clientRecruiter;
+        union { string, null } accountManagerName;
+        union { string, null } accountManagerEmail;
+        union { array<string>, null } jobCloseReason = [];
+        union { boolean, null } addToCareerPage = false;
+        union { JobEvents, null } eventType = "UPDATED";
+        union { int, null } submissions = 0;
+        union { string, null } monsterJobId = "";
+        union { string, null } jobStatusType = "";
+        union { string, null } jobCategory = "";
+        union { string, null } jobOccupation = "";
+        union { string, null } jobIndustryName = "";
+        union { string, null } workspaceId = "";
+        union { string, null } workspaceName = "";
+        union { string, null } workspaceOwnerId = "";
+        union { string, null } workspaceOwnerName = "";
+        union { array<string>, null } postedOnJobBoards = [];
+        union { boolean, null } indexed = true;
+    }
+}

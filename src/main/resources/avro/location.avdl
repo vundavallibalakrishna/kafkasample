@@ -1,0 +1,18 @@
+@namespace("com.ada.sample.avrogenerated")
+protocol LocationKafkaMessageService {
+    record LocationKafkaMessage {
+        union { string, null } id;
+        union { string, null } area;
+        union { string, null } city;
+        union { string, null } state;
+        union { string, null } stateCode;
+        union { string, null } country;
+        union { string, null } countryCode;
+        union { string, null } zipCode;
+        union { double, null } lat;
+        union { double, null } lon;
+        union { string, null } continent;
+        union { string, null } continentCode;
+        union { string, null } point;
+    }
+}
